@@ -1,16 +1,18 @@
-# This is a sample Python script.
+import random
 
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+print("""I am thinking of a 3-digit number. Try to guess what it is.
+Here are some clues:
+When I say:      That means:
+  Pico           One digit is correct but in the wrong position.
+  Fermi          One digit is correct and in the right position.
+  Bagels         No digit is correct.
+I have thought up a number.
+ You have 10 guesses to get it.""")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+def generate_three_digits():
+    three_digit_number = []
+    for i in range(3):
+        random_number = random.randint(0, 9)
+        three_digit_number.append(random_number)
+    print(three_digit_number)
