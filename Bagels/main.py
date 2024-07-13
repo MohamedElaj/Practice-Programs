@@ -5,12 +5,12 @@ MAX_GUESSES = 10
 
 
 def generate_secret_num():
-    hidden_three_digit = []
+    secret_num = ""
+    """Generate a random three digit number split into one list."""
     for i in range(3):
         random_number = random.randint(0, 9)
-<<<<<<< HEAD
-        three_digit_number.append(random_number)
-    print(three_digit_number)
+        secret_num += str(random_number)
+    return secret_num
 
 
 def get_clues(guess, secret_num):
@@ -31,9 +31,6 @@ def get_clues(guess, secret_num):
     else:
         clues.sort()
         return " ".join(clues)
-=======
-        hidden_three_digit.append(str(random_number))
-    return hidden_three_digit
 
 
 def main():
@@ -60,7 +57,12 @@ def main():
                 print(f"Guess {num_guesses}")
                 guess = input("> ")
 
+            clues = get_clues(guess, secret_num)
+            print(clues)
+            num_guesses += 1
 
-if __name__ == '__main__':
-    main()
->>>>>>> feature1
+            if guess == secret_num:
+                break
+
+
+generate_secret_num()
