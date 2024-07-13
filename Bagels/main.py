@@ -28,4 +28,3 @@ def main():
         i += 1
         guess = input(f"Guess #{i}:\n")
         guess_three_digits = [int(digit) for digit in guess]
-        #Exception schreiben falls keine Zahlen getippt wurden.
