@@ -1,16 +1,33 @@
-# This is a sample Python script.
-
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import random
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
+months = ["jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"]
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def generieren_geburtstag(number_of_birthdays):
+    birthdays = []
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    while number_of_birthdays != 0:
+        number_of_birthdays -= 1
+
+        month = random.choice(months)
+        if month == "jan" or "Mar" or "May" or "Jul" or "Sep" or "Nov":
+            day = str(random.randint(1, 31))
+        elif month == "Feb":
+            day = str(random.randint(1, 28))
+        else:
+            day = str(random.randint(1, 30))
+
+        birthday = day + " " + month
+        birthdays.append(birthday)
+
+    print(", ".join(birthdays))
+    return ", ".join(birthdays)
+
+
+number_of_birthdays = input("How many birthdays shall I generate? (Max 100) \n> ")
+
+print(f"\nHere are {number_of_birthdays} Birthdays:")
+generieren_geburtstag(int(number_of_birthdays))
+
+
