@@ -61,6 +61,18 @@ When I say:      That means:
 
             if guess == secret_num:
                 break
+            if num_guesses > MAX_GUESSES:
+                print("You ran out of guesses.")
+                print(f"The answer was {secret_num}")
+
+        print("Do you want to play again? (yes or no)")
+        if not input("> ").lower().startswith("y"):
+            break
+    print("Thanks for playing")
 
 
+<<<<<<< HEAD
 main()
+=======
+main()
+>>>>>>> main
