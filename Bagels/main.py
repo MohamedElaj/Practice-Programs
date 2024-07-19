@@ -71,8 +71,5 @@ When I say:      That means:
     print("Thanks for playing")
 
 
-<<<<<<< HEAD
 main()
-=======
-main()
->>>>>>> main
+
