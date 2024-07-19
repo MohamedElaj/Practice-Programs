@@ -1,7 +1,6 @@
 import random
 import time
 
-
 MONTHS: tuple = ("jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec")
 
 
@@ -66,7 +65,6 @@ def get_total_number_of_duplicates(number_of_birthdays: int, total_simulations=1
 
 
 def main():
-
     while True:
         response: str = input("How many birthdays shall I generate? (Max 100) \n> ")
         if response.isdecimal() and (0 < int(response) <= 100):
