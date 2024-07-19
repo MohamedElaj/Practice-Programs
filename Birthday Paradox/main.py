@@ -49,27 +49,28 @@ def finding_duplicates(birthdays):
 #     total_count += count
 
 
-def simulation(number_of_birthdays, total_simulations=10):
+def simulation(number_of_birthdays, total_simulations=100_000):
 
     number_of_simulation = 0
     total_count = 0
 
-    while number_of_simulation <= total_simulations:
+
+    # Hier ist irgendwo ein Problem mit der Rechnung und der Anzahl an durchgängen!!!
+    while number_of_simulation < total_simulations:
         number_of_simulation += 1
 
         geburtstage = generieren_geburtstage(number_of_birthdays)
         duplicate_birthdays = finding_duplicates(geburtstage)
 
-        count = 0
-        for i in duplicate_birthdays:
-            print(f"Anzahl an Elementen {len(duplicate_birthdays)}")
-            count += 1
-        total_count += count
-        print(total_count)
+
+        total_count += len(duplicate_birthdays)
+        #print(f"Anzahl an Elementen {duplicate_birthdays}")
+        #print(total_count)
 
         if number_of_simulation in (10_000, 20_000, 30_000, 40_000, 50_000, 60_000, 70_000, 80_000, 90_000, 100_000):
             #time.sleep(2)
             print(f"{number_of_simulation} simulations run")
+            print(total_count)
 
     return total_count
 
@@ -77,6 +78,7 @@ def simulation(number_of_birthdays, total_simulations=10):
 number_of_birthdays = input("How many birthdays shall I generate? (Max 100) \n> ")
 birthdays = generieren_geburtstage(int(number_of_birthdays))
 
+time.sleep(1)
 print(f"\nHere are {number_of_birthdays} Birthdays:")
 print(", ".join(birthdays))
 
@@ -88,6 +90,7 @@ else:
     print(f"In this simulation, multiple people have a birthday on {duplicate_birthdays_formated}.")
 
 
+time.sleep(2)
 print(f"\nGenerating {number_of_birthdays} random birthdays 100,000 times ...")
 
 check = True
@@ -99,7 +102,7 @@ while check:
         print("Wrong Key! Please press Enter.")
 
 matching_birthdays = simulation(int(number_of_birthdays))
-print(matching_birthdays)
+#print(matching_birthdays)
 
 print(f"""\nOut of 100_000 simulations of {number_of_birthdays} people, there was a matching birthday in that group 
 {matching_birthdays} times. This means that {number_of_birthdays} people have a {matching_birthdays:,} % chance of
