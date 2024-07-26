@@ -30,6 +30,10 @@ def get_days_in_month(year: int, month: int) -> dict:
     return weekdays_of_month
 
 
+def get_remaining_weekdays(weekdays_of_month: list) -> dict:
+    pass
+
+
 def main() -> None:
 
     while True:
