@@ -4,10 +4,7 @@ year: str = ""
 
 days:dict = {}
 for i in range(43):
-    if i != 0:
         days[f"day{i}"] = ""
-
-print(days)
 
 
 
