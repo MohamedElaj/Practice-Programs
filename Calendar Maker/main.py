@@ -31,10 +31,9 @@ def get_days_in_month(year: int, month: int) -> dict:
 
 
 def main() -> None:
-    month = ()
 
     while True:
-        response:str = input("Enter the year of the calender: \n> ")
+        response: str = input("Enter the year of the calender: \n> ")
         if response.isdecimal() and (0 < int(response) <= 9999):
             year = int(response)
             break
