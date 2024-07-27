@@ -1,7 +1,7 @@
 import art
 import datetime
 
-weekdays = {
+WEEKDAYS = {
     1: "Monday",
     2: "Tuesday",
     3: "Wednesday",
@@ -12,7 +12,7 @@ weekdays = {
 }
 
 
-def get_days_in_month(year: int, month: int) -> dict:
+def get_days_in_month(year: int, month: int) -> list:
 
     start_date = datetime.date(year, month, 1)
 
@@ -21,17 +21,15 @@ def get_days_in_month(year: int, month: int) -> dict:
     else:
         end_date = datetime.date(year, month + 1, 1)
 
-    weekdays_of_month = {}
+    weekdays_of_month = []
     current_date = start_date
     while current_date < end_date:
-        weekdays_of_month[current_date.day] = weekdays[current_date.isoweekday()]
+        weekdays_of_month.append(current_date.day)
         current_date += datetime.timedelta(days=1)
 
+    last_day_of_previous_month = end_date - datetime.timedelta(days=1)
+
     return weekdays_of_month
-
-
-def get_remaining_weekdays(weekdays_of_month: list) -> dict:
-    pass
 
 
 def main() -> None:
@@ -51,7 +49,8 @@ def main() -> None:
             break
 
     weekdays_of_month = get_days_in_month(year, month)
-    print(weekdays_of_month)
+    # print(weekdays_of_month)
+    # print(weekdays_of_month[1])
 
 
 main()
