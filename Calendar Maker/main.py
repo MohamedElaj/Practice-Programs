@@ -1,4 +1,3 @@
-import art
 import datetime
 
 
@@ -18,15 +17,14 @@ def get_calendar_for_month(year: int, month: int) -> list:
 
 
     current_date = start_date
-    monthly_calendar = []
+    monthly_calendar: list = []
     while current_date <= end_date:
-        week = []
+        week: list = []
         for i in range(7):
             week.append(current_date.day)
             current_date += datetime.timedelta(days=1)
         monthly_calendar.append(week)
 
-    print(monthly_calendar)
     return monthly_calendar
 
 
