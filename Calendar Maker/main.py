@@ -1,35 +1,33 @@
 import art
 import datetime
 
-WEEKDAYS = {
-    1: "Monday",
-    2: "Tuesday",
-    3: "Wednesday",
-    4: "Thursday",
-    5: "Friday",
-    6: "Saturday",
-    7: "Sunday"
-}
 
+def get_calendar_for_month(year: int, month: int) -> list:
 
-def get_days_in_month(year: int, month: int) -> list:
-
-    start_date = datetime.date(year, month, 1)
+    first_day_of_month = datetime.date(year, month, 1)
 
     if month == 12:
-        end_date = datetime.date(year + 1, 1, 1)
+        first_day_of_next_month = datetime.date(year + 1, 1, 1)
     else:
-        end_date = datetime.date(year, month + 1, 1)
+        first_day_of_next_month = datetime.date(year, month + 1, 1)
+    last_day_of_month = first_day_of_next_month - datetime.timedelta(days=1)
 
-    weekdays_of_month = []
+    # Specify the first and last Day in which we have to fill the calendar.
+    start_date = first_day_of_month - datetime.timedelta(days=first_day_of_month.weekday() + 1)
+    end_date = last_day_of_month + datetime.timedelta(days=(5 - last_day_of_month.weekday()))
+
+
     current_date = start_date
-    while current_date < end_date:
-        weekdays_of_month.append(current_date.day)
-        current_date += datetime.timedelta(days=1)
+    monthly_calendar = []
+    while current_date <= end_date:
+        week = []
+        for i in range(7):
+            week.append(current_date.day)
+            current_date += datetime.timedelta(days=1)
+        monthly_calendar.append(week)
 
-    last_day_of_previous_month = end_date - datetime.timedelta(days=1)
-
-    return weekdays_of_month
+    print(monthly_calendar)
+    return monthly_calendar
 
 
 def main() -> None:
@@ -45,18 +43,9 @@ def main() -> None:
         response: str = input("Enter the month of the calendar, 1-12: \n> ")
         if response.isdecimal() and (1 <= int(response) <= 12):
             month = int(response)
-            # Hier vielleicht durch eine Dictionary, den richtigen Monat rauspicken durch die angegebene Zahl.
             break
 
-    weekdays_of_month = get_days_in_month(year, month)
-    # print(weekdays_of_month)
-    # print(weekdays_of_month[1])
+    get_calendar_for_month(year, month)
 
 
 main()
-
-
-
-
-
-
