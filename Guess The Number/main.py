@@ -7,8 +7,8 @@ attempts = 10
 
 print("I am thinking of a number between 1 and 100.")
 
-prozess = True
-while prozess:
+
+while True:
     guess = ""
     while not (guess.isdecimal() and 1 <= int(guess) <= 100):
         print(f"You have {attempts} guesses left. Take a guess.")
@@ -22,9 +22,9 @@ while prozess:
         print("Your guess is too high.")
     else:
         print("Yay! You guessed my number!")
+        break
 
-
+    
     if attempts == 0:
         print("You lost the Game!!!")
-        prozess = False
-        # Hier geht nicht richtig aus dem Spiel raus, wenn die Zahl richtig erraten wird.
+        break
